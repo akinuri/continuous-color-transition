@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Continuous Color Transition</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="" />
+        <style>
+            body {
+                /* although a blank page (document.body) appears white, its color isn't defined
+                   getComputedStyle returns "rgba(0, 0, 0, 0)" for an element without background
+                   since it appears white and we need to get the correct rgb value
+                   we need to explicitly set its color */
+                background: white;
+            }
+        </style>
+    <head>
+<body>
+
+<script src="scripts/utils.js"></script>
+<script src="scripts/transition.js"></script>
+<script>
+    var fps          = 30;
+    var transElement = document.body;
+    var currentColor = getElementBG(transElement); // white
+    var targetColor  = null;
+    var increment    = null;
+    
+    resetTransition();
+    
+    setInterval(function () {
+        transition();
+    }, 1000/fps);
+</script>
+
+</body>
+</html>
